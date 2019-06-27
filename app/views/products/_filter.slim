@@ -1,12 +1,16 @@
 #woocommerce_price_filter-3.widget.woocommerce.widget_price_filter
   h5.widget-title
     span Filter by price
-    .form-row
+    .woocommerce_price_filter-3
       = search_form_for(@filter, url: shop_path) do |f|
-        .form-group.col-md-6 style=("padding-left: 0px; margin-top: 30px; margin-bottom: 0px; width: 35%; margin-right: 0px;") 
+        .woocommerce_product_search-3
+        br
+          = f.label :price, "Name", style: "font-size: 17px;"
+          = f.search_field :name_cont, placeholder: "Product name", class: "form-control", style: "width: 65%"
+        .form-group.col-md-6 style=("padding-left: 0px; margin-bottom: 0px; width: 35%; margin-right: 0px;") 
           = f.label :price, "Min", style: "font-size: 17px;"
           = f.text_field :price_gteq, placeholder: "$", class: "form-control"
-        .form-group.col-md-6 style=("margin-top: 30px; width: 35%;margin-right: 0px;") 
+        .form-group.col-md-6 style=("width: 35%;margin-right: 0px;") 
           = f.label :price, "Max", style: "font-size: 17px;"
           = f.text_field :price_lteq, placeholder: "$", class: "form-control" do
             i.far.fa-dollar-sign

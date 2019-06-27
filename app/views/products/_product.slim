@@ -1,7 +1,7 @@
 li.product.last
   = link_to (product.images.first.file_url if product.images.presence) || "/assets/user1.jpg", {class: "thumbs1"}
     = image_tag (product.images.first.file_url(:thumb) if product.images.presence) || "/assets/user1.jpg", alt: "Edit Entry", class: "attachment-shop_catalog.size-shop_catalog"
-  h2.woocommerce-loop-product__title 
+  h2.woocommerce-loop-product__title style="height: 65px"
     = link_to product.name, product
   - if product.reviews.presence
     .star-rating data-score=product.avg_rating

@@ -1,7 +1,8 @@
 .item
   .tyche-product.primary
     .tyche-product-image
-      = image_tag (product.images.first.file_url(:thumb) if product.images.presence) || "/assets/user1.jpg", size: "45", alt: "Edit Entry", class: "attachment-shop_catalog.size-shop_catalog"
+      = link_to (product.images.first.file_url if product.images.presence) || "/assets/user1.jpg", {class: "thumbs1"}
+        = image_tag (product.images.first.file_url(:thumb) if product.images.presence) || "/assets/user1.jpg", size: "45", alt: "Edit Entry", class: "attachment-shop_catalog.size-shop_catalog"
     .tyche-product-body
       h3
         a.woocommerce-LoopProduct-link.woocommerce-loop-product__link
