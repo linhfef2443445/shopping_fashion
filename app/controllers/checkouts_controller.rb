@@ -26,8 +26,10 @@ class CheckoutsController < ApplicationController
   private
 
   def check_cart
-    redirect_to carts_path if cart.data.empty?
-    flash[:error] = "No order items!"
+    if cart.data.empty?
+      flash[:error] = "No order items!"
+      redirect_to carts_path 
+    end
   end
 
   def checkout_params

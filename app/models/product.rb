@@ -6,7 +6,7 @@ class Product < ApplicationRecord
   has_many :order_items, dependent: :destroy
   has_many :images, as: :imageable
   has_many :reviews
-  friendly_id :slug_candidates, use: %i[slugged finders]
+  friendly_id :slug_candidates, use: %i[slugged finders history]
 
   validates :name, presence: true
   validates :price, presence: true
@@ -33,5 +33,9 @@ class Product < ApplicationRecord
 
   def avg_rating
     reviews.average(:rate)
+  end
+  
+  def should_generate_new_friendly_id?
+    name_changed? || super
   end
 end

@@ -30,6 +30,7 @@ module Manager
     def edit; end
 
     def update
+      @product = Product.friendly.find(params[:id])
       if @product.update product_params
         if params.dig(:product, :images)
           params[:product][:images].each do |image|
@@ -37,7 +38,7 @@ module Manager
           end
         end
         flash[:success] = "Products updated"
-        redirect_to edit_manager_product_path
+        redirect_to manager_products_path
       else
         render :edit
       end
